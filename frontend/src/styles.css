@@ -1,0 +1,13 @@
+body
+{
+  font-family:fantasy, sans-serif;
+  background-color: #223030;
+  color: white;
+}
+
+button 
+{
+  padding: 10px 12px;
+  margin-top: 10px;
+  cursor: pointer;
+}
