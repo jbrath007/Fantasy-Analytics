@@ -25,17 +25,16 @@ def get_player(name):
             "position": player["position"],
             "team": player["team"],
             "stats":{
-                "pass_yards": player["pass_yards"],
-                "pass_td": player["pass_td"],
-                "completions": player["completions"],
-                "ints": player["ints"],
-                "Rush Attempts": player["rush_attempt"],
-                "rush_yards": player["rush_yards"],
-                "rush_yards": player["rush_yards"],
-                "rush_td": player["rush_td"],
-                "Fumble": player["fumble"]
+                "Passing Yards": player["Passing Yards"],
+                "Passing Touchdowns": player["Passing Touchdowns"],
+                "Completions": player["Completions"],
+                "Interceptions": player["Interceptions"],
+                "Rush Attempts": player["Rush Attempts"],
+                "Rushing Yards": player["Rushing Yards"],
+                "Rushing Touchdowns": player["Rushing Touchdowns"],
+                "Fumbles": player["Fumbles"]
             },
-            "fantasy_points": player["fantasy_points"]  
+            "fantasy_points": player["Fantasy Points"]  
         })
     
     elif not rb.empty:
@@ -45,15 +44,16 @@ def get_player(name):
             "position": player["position"],
             "team": player["team"],
             "stats":{
-                "Rush Attempts": player["rush_attempt"],
-                "rush_yards": player["rush_yards"],
-                "rush_td": player["rush_td"],
-                "Targets": player["targets"],
-                "rec": player["rec"],
-                "rec_yards": player["rec_yards"],
-                "rec_td": player["rec_td"]
+                "Rush Attempts": player["Rush Attempts"],
+                "Rushing Yards": player["Rushing Yards"],
+                "Rushing Touchdowns": player["Rushing Touchdowns"],
+                "Targets": player["Targets"],
+                "Receptions": player["Receptions"],
+                "Receiving Yards": player["Receiving Yards"],
+                "Yards After Catch": player["Yards After Catch"],
+                "Receiving Touchdowns": player["Receiving Touchdowns"]
             },
-            "fantasy_points": player["fantasy_points"]  
+            "fantasy_points": player["Fantasy Points"]  
         })
     
     elif not wr.empty or not te.empty:
@@ -63,16 +63,17 @@ def get_player(name):
             "position": player["position"],
             "team": player["team"],
             "stats":{
-                "Rush Attempts": player["rush_attempt"],
-                "rush_yards": player["rush_yards"],
-                "rush_td": player["rush_td"],
-                "Fumble": player["fumble"],
-                "Targets": player["targets"],
-                "rec": player["rec"],
-                "rec_yards": player["rec_yards"],
-                "rec_td": player["rec_td"]
+                "Rush Attempts": player["Rush Attempts"],
+                "Rushing Yards": player["Rushing Yards"],
+                "Rushing Touchdowns": player["Rushing Touchdowns"],
+                "Fumble": player["Fumbles"],
+                "Targets": player["Targets"],
+                "Receptions": player["Receptions"],
+                "Receiving Yards": player["Receiving Yards"],
+                "Yards After Catch": player["Yards After Catch"],
+                "Receiving Touchdowns": player["Receiving Touchdowns"]
             },
-            "fantasy_points": player["fantasy_points"]  
+            "fantasy_points": player["Fantasy Points"]  
         })
 
     return jsonify({"Error": "Player Not Found!"})

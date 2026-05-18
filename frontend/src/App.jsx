@@ -19,7 +19,7 @@ function App()
         
       </nav>
 
-      {/* ROutes */}
+      {/* Routes */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<PlayerSearch />} />

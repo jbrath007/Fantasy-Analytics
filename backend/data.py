@@ -155,7 +155,57 @@ rb_stats = rb_pos[["full_name", "team", "position", "rush_attempt", "rush_yards"
 wr_stats = wr_pos[["full_name", "team", "position", "targets", "rec", "rec_yards", "rec_td", "yac", "rush_attempt", "rush_yards", "rush_td", "fumble", "fantasy_points"]]
 te_stats = te_pos[["full_name", "team", "position", "targets", "rec", "rec_yards", "rec_td", "yac", "rush_attempt", "rush_yards", "rush_td", "fumble", "fantasy_points"]]
 
-#file management for excel output
+qb_stats = qb_stats.rename(columns={
+    "completions": "Completions",
+    "pass_yards": "Passing Yards",
+    "pass_td": "Passing Touchdowns",
+    "ints": "Interceptions",
+    "rush_attempt": "Rush Attempts",
+    "rush_yards": "Rushing Yards",
+    "rush_td": "Rushing Touchdowns",
+    "fumble": "Fumbles",
+    "fantasy_points": "Fantasy Points"
+})
+
+rb_stats = rb_stats.rename(columns={
+    "rush_attempt": "Rush Attempts",
+    "rush_yards": "Rushing Yards",
+    "rush_td": "Rushing Touchdowns",
+    "targets": "Targets",
+    "rec": "Receptions",
+    "rec_yards": "Receiving Yards",
+    "rec_td": "Receiving Touchdowns",
+    "yac": "Yards After Catch",
+    "fumble": "Fumbles",
+    "fantasy_points": "Fantasy Points"
+})
+
+wr_stats = wr_stats.rename(columns={
+    "rush_attempt": "Rush Attempts",
+    "rush_yards": "Rushing Yards",
+    "rush_td": "Rushing Touchdowns",
+    "targets": "Targets",
+    "rec": "Receptions",
+    "rec_yards": "Receiving Yards",
+    "rec_td": "Receiving Touchdowns",
+    "yac": "Yards After Catch",
+    "fumble": "Fumbles",
+    "fantasy_points": "Fantasy Points"
+})
+
+te_stats = te_stats.rename(columns={
+    "rush_attempt": "Rush Attempts",
+    "rush_yards": "Rushing Yards",
+    "rush_td": "Rushing Touchdowns",
+    "targets": "Targets",
+    "rec": "Receptions",
+    "rec_yards": "Receiving Yards",
+    "rec_td": "Receiving Touchdowns",
+    "yac": "Yards After Catch",
+    "fumble": "Fumbles",
+    "fantasy_points": "Fantasy Points"
+})
+
 file_path = "Fantasy_Stats_2025.xlsx"
 
 # if the file exists append it if not create a new one 
@@ -164,10 +214,10 @@ if_sheet_exists = "replace" if mode == 'a' else None
 
 # create several sheets in an excel file splitting by position and sorting them by most fantasy points scored
 with pd.ExcelWriter("Fantasy_Stats_2025.xlsx", engine="openpyxl", mode=mode, if_sheet_exists=if_sheet_exists) as writer:
-    qb_stats.sort_values(by="fantasy_points", ascending=False).to_excel(writer, sheet_name="Quarterbacks", index = False)
-    rb_stats.sort_values(by="fantasy_points", ascending=False).to_excel(writer, sheet_name="Running Backs", index = False)
-    wr_stats.sort_values(by="fantasy_points", ascending=False).to_excel(writer, sheet_name="Wide Receivers", index = False)
-    te_stats.sort_values(by="fantasy_points", ascending=False).to_excel(writer, sheet_name="Tight Ends", index = False)
+    qb_stats.sort_values(by="Fantasy Points", ascending=False).to_excel(writer, sheet_name="Quarterbacks", index = False)
+    rb_stats.sort_values(by="Fantasy Points", ascending=False).to_excel(writer, sheet_name="Running Backs", index = False)
+    wr_stats.sort_values(by="Fantasy Points", ascending=False).to_excel(writer, sheet_name="Wide Receivers", index = False)
+    te_stats.sort_values(by="Fantasy Points", ascending=False).to_excel(writer, sheet_name="Tight Ends", index = False)
 
 print("Data Successfully Processed and Exported to Excel Sheet!")
 
@@ -175,10 +225,10 @@ print("Data Successfully Processed and Exported to Excel Sheet!")
 
 import matplotlib.pyplot as plt
 
-qb_fantasy_point_plot = qb_stats.sort_values("fantasy_points", ascending=False).head(24)
+qb_fantasy_point_plot = qb_stats.sort_values("Fantasy Points", ascending=False).head(24)
 
 plt.figure(figsize=(10, 6))
-plt.scatter(qb_fantasy_point_plot["full_name"], qb_fantasy_point_plot["fantasy_points"], color='green')
+plt.scatter(qb_fantasy_point_plot["full_name"], qb_fantasy_point_plot["Fantasy Points"], color='green')
 plt.title("Top 24 QB Fantasy Stats")
 plt.xlabel("Player Name")
 plt.ylabel("Fantasy Points")

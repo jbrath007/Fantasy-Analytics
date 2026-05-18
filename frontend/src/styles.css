@@ -2,18 +2,12 @@ body
 {
   font-family:fantasy, sans-serif;
   font-weight: 1000;
-  background-color: #071313;
-  color: white;
+  background-color: #043927;
 }
 
 html
 {
   scroll-behavior: smooth;
-}
-
-p
-{
-
 }
 
 button 
@@ -43,33 +37,47 @@ nav
   font-size: 2rem;
 }
 
-.menu-links
+.menu-links, a
 {
-  color: aliceblue;
+  color: #D0D5CE;
   text-decoration: none;
   text-decoration-color: white;
+  font-weight: normal;
 }
 
-link:hover
+link:hover, a:hover
 {
-  color: skyblue;
+  color: #AAC7D8;
   text-decoration: underline;
   text-underline-offset: 1rem;
   text-decoration-color: rgb(200, 200, 200);
+  font-size: 2.15rem;
+  font-weight: bolder;
+}
+
+/*home Page*/
+#home
+{
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#home p
+{
+  font-size: 2.50rem;
+  font-weight: normal;
 }
 
 .title
 {
   font-size: 3rem;
-  color: #e96309;
+  color: #768A96;
   font-weight: bold;
   text-align: center;
 }
 
-.title:hover
-{
-  cursor: default;
-}
 
 /*header section*/
 .header
@@ -78,7 +86,7 @@ link:hover
   align-items: center;
   padding-bottom: 1.5rem;
   font-size: 2rem;
-  color: rgb(136, 130, 130); 
+  color: #768A96; 
 }
 /*Placeholder*/
 .message-container
@@ -104,18 +112,23 @@ link:hover
   gap: 1.5rem;
 }
 
-.btn
+.btn, .btn-color2:hover
 {
   font-weight: 700px;
   transition: all 300ms ease-in-out;
   padding: 1rem;
   width: 8rem;
   border-radius: 1.5rem;
+  
+}
+
+.btn-color1, .btn-color2:hover
+{
   border: rgb(79, 86, 102);
   background: rgb(146, 214, 226);
 }
 
-.btn:hover
+.btn-color2, .btn-color1:hover
 {
   color: gray;
   background: rgb(19, 18, 18);
@@ -132,11 +145,26 @@ link:hover
 
 .stat__section
 {
-  width: 45vh;
+  width: 60vh;
   border: rgb(79, 86, 102);
   border-radius: 2rem;
   background: rgb(32, 32, 32);
   padding: 2rem;
+}
+
+/* stats text display */
+#stats
+{
+  display: flex;
+  flex-direction: column;
+}
+
+#stats p
+{
+  align-items: center;
+  color: #FBF8F0;
+  text-align: center;
+  font-weight: normal;
 }
 
 .name_position
